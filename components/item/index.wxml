@@ -1,0 +1,20 @@
+<view>
+  <view class="item" wx:for="{{itemList}}" wx:key="{{index}}" data-item-id="{{item.id}}" bindtap="navigateToDetail">
+    <view>
+      <image src="{{imgList[index]}}" lazy-load="{{true}}" mode="aspectFill"></image>
+    </view>
+
+    <view>
+      <text>{{item.title}}</text>
+    </view>
+    
+    <view>
+      <text>价格: {{item.price}}</text>
+      <text wx:if="{{item.old_price}}">[原价: {{item.old_price}}]</text>
+    </view>
+
+    <view>
+      <text>发布于: {{timeList[index]}}</text>
+    </view>
+  </view>
+</view>

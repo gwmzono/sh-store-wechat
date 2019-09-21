@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/mine/mine",
+    "pages/detail/detail",
+    "pages/login/login"
+  ],
+  "usingComponents": {
+    "z-item": "components/item/index",
+    "i-toast": "ivu/toast/index",
+    "i-icon": "ivu/icon/index",
+    "i-tabs": "ivu/tabs/index",
+    "i-tab": "ivu/tab/index",
+    "i-action-sheet": "ivu/action-sheet/index"
+  },
+  "tabBar":{
+    "color":"#999",
+    "selectedColor":"#07c160",
+    "backgroundColor":"#fff",
+    "list":[
+      {"pagePath":"pages/index/index", "text":"首页","iconPath":"icon/home.png","selectedIconPath":"icon/home_fill.png"},
+      {"pagePath":"pages/publish/publish", "text":"发布","iconPath": "icon/fabu.png","selectedIconPath": "icon/fabu_fill.png"},
+      {"pagePath":"pages/mine/mine", "text":"我的","iconPath": "icon/my.png","selectedIconPath": "icon/my_fill.png"}
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "IDLE STORE",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "允许获取您的地理位置"
+    }
+  },
+  "networkTimeout":{
+    "request": 3000,
+    "uploadFile": 10000
+  }
+}

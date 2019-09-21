@@ -1,0 +1,12 @@
+/* pages/detail/detail.wxss */
+.message{
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}
+.message textarea{
+  padding: 20rpx;
+}
+.send-message{
+  margin-bottom: 10rpx;
+}

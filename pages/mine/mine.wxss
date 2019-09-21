@@ -1,0 +1,4 @@
+/* pages/mine/mine.wxss */
+#mine .login-area button{
+  margin-bottom: 10rpx;
+}

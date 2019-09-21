@@ -1,0 +1,11 @@
+<view class="container" id="mine">
+  <view class="login-area">
+    <block wx:if="{{!loginStatus}}">
+      <button>注册</button>
+      <button type="primary" bindtap="pressLoginButton">登录</button>
+    </block>
+    <block wx:else>
+      <button bindtap="pressLogoutButton">退出登录</button>
+    </block>
+  </view>
+</view>

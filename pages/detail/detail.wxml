@@ -1,0 +1,18 @@
+<view id="detail" class="container">
+  <view>{{itemInfo.title}}</view>
+  <view>价格: {{itemInfo.price}}</view>
+  <view wx:if="{{itemInfo.old_price}}">原价: {{itemInfo.old_price}}</view>
+  <view>所在地: {{itemInfo.school}}</view>
+  <view>发布者: {{itemInfo.nickname}}</view>
+  <view>发布于: {{time}}</view>
+  <view>描述: {{itemInfo.desc}}</view>
+  <view class="message">
+    <textarea value="{{message}}" placeholder="输入留言内容" bindinput="syncValue"></textarea>
+  </view>
+  <view class="send-message">
+    <button type="primary" bindtap="leaveMessage">给Ta留言</button>
+  </view>
+  <view>
+    <image wx:for="{{imgList}}" wx:key="{{item}}" src="{{item}}" lazy-load mode="widthFix"></image>
+  </view>
+</view>

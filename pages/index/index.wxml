@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container" id="index">
+  <i-toast id="toast" />
+  <i-action-sheet visible="{{visible}}" actions="{{actionSheet}}" show-cancel bind:click="openActionSheet" bind:cancel="closeActionSheet"></i-action-sheet>
+  <view class="top-bar">
+    <picker mode="multiSelector" class="school-picker" range="{{schoolList}}" bindcolumnchange="selectSchool">{{schoolName}}></picker>
+    <view class="login-area">
+      <text wx:if="{{userInfo}}" bindtap="clickOnline" style="color:#19be6b;">[{{userInfo.nickname}}]已登录</text>
+      <text wx:else bindtap="clickOffline" style="color:#ed3f14;">未登录</text>
+    </view>
+  </view>
+
+  <view class="search-wrap">
+    <input value="{{itemName}}" class="search-area" type="text" placeholder="输入关键词搜索商品" confirm-type="搜索" bindinput="bindValueChange" bindconfirm="searchItem"></input>
+    <view class="search-icon" bindtap="searchItem">
+      <i-icon type="search" size="20" color="#666"/>
+    </view>
+  </view>
+
+  <i-tabs current="{{currentTab}}" bindchange="changeTab" i-class="my-tabs">
+    <i-tab wx:for="{{cateList}}" wx:key="{{index}}" key="{{item}}" title="{{item}}"></i-tab>
+  </i-tabs>
+  <block wx:if="{{itemList}}">
+    <z-item item-list-str="{{itemList}}"></z-item>
+  </block>
+</view>
