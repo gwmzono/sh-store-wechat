@@ -4,6 +4,7 @@ const app = getApp()
 const { $Toast } = require('../../ivu/base/index');
 
 Page({
+  //数据
   data: {
     schoolName: '选择学校',
     schoolList: [
@@ -19,15 +20,19 @@ Page({
     userInfo: '',
     visible: false,
     actionSheet: [{name: '退出登录'}],
+    currentPage: 1,
+    totalPage: 0,
   },
+
   //启动函数
   onLoad() {
-    let schoolName = wx.getStorageSync('school')
+    let schoolName = wx.getStorageSync('school');
     if(schoolName){
       this.setData({
         schoolName
       })
     }
+    this.changeTab({ detail: { key: '最新' } });
   },
   onShow(){
     let userInfo = wx.getStorageSync('userInfo');
@@ -124,6 +129,9 @@ Page({
   },
   //切换分类
   changeTab({detail}){
+    if (this.data.currentTab !== detail.key){
+      this.setData({currentPage:1,totalPage:0})
+    }
     this.setData({
       currentTab: detail.key
     })
@@ -136,7 +144,7 @@ Page({
     }
     let tempObj={
       school: this.data.schoolName,
-      page: 1,
+      page: this.data.currentPage,
       size: 4,
     }
     if (this.data.currentTab !== '最新'){
@@ -152,7 +160,8 @@ Page({
       }
       this.setData({
         itemList: JSON.stringify(res.data),
-        itemNum: res.count
+        itemNum: res.count,
+        totalPage: Math.ceil(res.count / tempObj.size)
       })
     },(err)=>{
       console.error(err);
@@ -184,5 +193,20 @@ Page({
     this.setData({
       visible: false
     })
+  },
+  // 分页
+  clickPage({detail}){
+    const type = detail.type;
+    if (type === 'next') {
+      this.setData({
+        currentPage: this.data.currentPage + 1
+      });
+      this.changeTab({detail:{key:this.data.currentTab}});
+    } else if (type === 'prev') {
+      this.setData({
+        currentPage: this.data.currentPage - 1
+      });
+      this.changeTab({ detail: { key: this.data.currentTab } });
+    }
   }
 })

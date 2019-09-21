@@ -12,7 +12,8 @@
     "i-icon": "ivu/icon/index",
     "i-tabs": "ivu/tabs/index",
     "i-tab": "ivu/tab/index",
-    "i-action-sheet": "ivu/action-sheet/index"
+    "i-action-sheet": "ivu/action-sheet/index",
+    "i-page": "ivu/page/index"
   },
   "tabBar":{
     "color":"#999",
