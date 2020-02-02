@@ -3,7 +3,7 @@ const app = getApp();
 Component({
   externalClasses: 'z-class',
   //传入一个item-list-str属性, 得到一个商品列表
-  //微信属性传数组和对象有bug...
+  //微信组件传数组和对象有bug...
   properties: {
     itemListStr: String
   },
@@ -52,7 +52,7 @@ Component({
   observers: {
     "itemListStr": function (itemListStr){
       this.setData({
-        itemList: JSON.parse(this.data.itemListStr)
+        itemList: JSON.parse(itemListStr)
       });
       this.getImgList();
       this.setTime();

@@ -1,0 +1,6 @@
+<!--pages/message/message.wxml-->
+<view id="message" class="container">
+  <i-cell-group>
+    <i-cell wx:for="{{dialogueList}}" wx:key="{{index}}" title="{{item[0].nickname}}" label="{{item[0].item_title}}" bind:click="pressDialogue" data-index="{{index}}"></i-cell>
+  </i-cell-group>
+</view>

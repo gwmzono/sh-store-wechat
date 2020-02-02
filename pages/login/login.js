@@ -1,6 +1,7 @@
 // pages/login/login.js
 const app = getApp();
 const { $Toast } = require('../../ivu/base/index');
+const {atob} = require('../../utils/util');
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
     this.setData({userName: detail.value.trim()});
   },
   //绑定密码
-  changePassword({ detail }){
+  changePassword({detail}){
     this.setData({ password: detail.value.trim() });
   },
   //检查用户名
@@ -53,7 +54,7 @@ Page({
     if (!this.checkPassword({ detail: { value: this.data.password } })) {
       return false;
     }
-    let loginTask = app.wxPost('login',{
+    const loginTask = app.wxPost('login',{
       phone:this.data.userName,
       password: this.data.password,
     },(res)=>{
@@ -73,7 +74,7 @@ Page({
     loginTask.onHeadersReceived(function(res){
       const token = res.header['x-token'];
       if(!token){return false;}
-      let userInfo = JSON.parse(atob(token.split('.')[1]));
+      let userInfo = JSON.parse(atob(token.split('.')[1]).replace(/\}.*$/, "}"));
       wx.setStorageSync('userInfo',userInfo);
       wx.setStorageSync('token',token);
     });

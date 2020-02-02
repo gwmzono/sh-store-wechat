@@ -1,0 +1,30 @@
+<!--pages/register/register.wxml-->
+<view class="container" id="register">
+  <i-toast id="toast" />
+  <view>
+    <view class="register-item">
+      <view class="title">所在学校:</view>
+      <input value="{{school}}" placeholder="学校名称" bindinput="changeSchool"></input>
+    </view>
+    <view class="register-item">
+      <view class="title">手机号:</view>
+      <input value="{{phone}}" placeholder="手机号" bindinput="changePhone"></input>
+    </view>
+    <view class="register-item">
+      <view class="title">密码:</view>
+      <input value="{{password}}" password placeholder="密码" bindinput="changePassword"></input>
+    </view>
+    <view class="register-item">
+      <view class="title">确认密码:</view>
+      <input value="{{rePassword}}" password placeholder="确认密码" bindinput="changeRePassword"></input>
+    </view>
+    <view class="register-item">
+      <view class="title">昵称:</view>
+      <input value="{{nickname}}" placeholder="昵称" bindinput="changeNickname"></input>
+    </view>
+  </view>
+
+  <view class="register-btn">
+    <button type="primary" bindtap="pressRegisterButton">注册</button>
+  </view>
+</view>

@@ -1,1 +1,37 @@
 /* pages/publish/publish.wxss */
+#publish view{
+  margin-bottom: 20rpx;
+}
+#publish .img-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+#publish .img{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10rpx;
+}
+#publish .img image{
+  width: 340rpx;
+}
+#publish .img button{
+  width: 100%;
+  line-height: 2;
+}
+#publish .title input{
+  border-bottom: 1px solid #eee;
+}
+#publish .desc textarea{
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1px solid #eee;
+}
+#publish .cate picker{
+  color: #2d8cf0;
+}
+#publish .price input{
+  border-bottom: 1px solid #eee;
+}
+#publish .old-price input{
+  border-bottom: 1px solid #eee;
+}

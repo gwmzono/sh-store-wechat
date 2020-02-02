@@ -11,7 +11,7 @@
   </view>
 
   <view class="search-wrap">
-    <input value="{{itemName}}" class="search-area" type="text" placeholder="输入关键词搜索商品" confirm-type="搜索" bindinput="bindValueChange" bindconfirm="searchItem"></input>
+    <input value="{{itemName}}" class="search-area" type="text" placeholder="输入关键词搜索商品" confirm-type="search" bindinput="bindValueChange" bindconfirm="searchItem"></input>
     <view class="search-icon" bindtap="searchItem">
       <i-icon type="search" size="20" color="#666"/>
     </view>

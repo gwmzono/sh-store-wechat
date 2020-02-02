@@ -1,0 +1,21 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view>
+    <z-breadcrumb separator=">" bread-list="{{breadList}}" current="搜索 [{{keyword}}]"></z-breadcrumb>
+  </view>
+  <view>
+    <z-item item-list-str="{{itemList}}"></z-item>
+  </view>
+  <view>
+    <i-page current="{{currentPage}}" total="{{totalPage}}" bind:change="clickPage">
+      <view slot="prev">
+          <i-icon type="return"></i-icon>
+          上一页
+      </view>
+      <view slot="next">
+          下一页
+          <i-icon type="enter"></i-icon>
+      </view>
+    </i-page>
+  </view>
+</view>

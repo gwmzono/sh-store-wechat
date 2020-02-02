@@ -1,11 +1,20 @@
 <view class="container" id="mine">
   <view class="login-area">
     <block wx:if="{{!loginStatus}}">
-      <button>注册</button>
+      <button bindtap="pressRegisterButton">注册</button>
       <button type="primary" bindtap="pressLoginButton">登录</button>
     </block>
     <block wx:else>
-      <button bindtap="pressLogoutButton">退出登录</button>
+      <button bindtap="pressMessage">我的消息</button>
+      <button bindtap="pressItemList">物品列表</button>
+      <button bindtap="pressChangePassword">修改密码</button>
+      <button bindtap="pressLogoutButton" type="warning">退出登录</button>
+      <button bindtap="pressUnregister" class="unrigister" type="error">注销账户</button>
     </block>
   </view>
+
+  <i-modal title="注销!!!" visible="{{unregisterVisible}}" bind:ok="confirmUnregister" bind:cancel="cancelUnregister">
+    <view>注销操作将会永久删除</view>
+    <view>当前账户以及所有相关数据</view>
+  </i-modal>
 </view>

@@ -1,0 +1,6 @@
+<!--pages/console/console.wxml-->
+<view id="console" class="container">
+  <button>物品列表</button>
+  <button>修改密码</button>
+  <button bindtap="" type="warn">删除账号</button>
+</view>

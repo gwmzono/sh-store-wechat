@@ -1,14 +1,14 @@
-/* pages/login/login.wxss */
-#login .z-input{
+/* pages/register/register.wxss */
+#register .register-item{
   display: flex;
   margin-bottom: 10rpx;
   justify-content: space-between;
   padding: 10rpx 20rpx;
 }
-#login .z-input .title{
+#register .register-item .title{
   width: 160rpx;
 }
-#login .z-input input{
+#register .register-item input{
   border-bottom: 1px solid #ccc;
   flex-grow: 1;
 }

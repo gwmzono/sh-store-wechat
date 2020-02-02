@@ -1,4 +1,9 @@
 /* pages/mine/mine.wxss */
 #mine .login-area button{
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
+}
+#mine .login-area .unrigister{
+  position: fixed;
+  bottom: 20rpx;
+  width: 700rpx;
 }

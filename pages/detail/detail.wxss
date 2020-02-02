@@ -1,12 +1,23 @@
 /* pages/detail/detail.wxss */
-.message{
-  border: 1px solid #ccc;
-  border-radius: 10rpx;
+#detail .send-message{
   margin-bottom: 10rpx;
 }
-.message textarea{
-  padding: 20rpx;
+#detail .swiper swiper{
+  height: 600rpx;
 }
-.send-message{
-  margin-bottom: 10rpx;
+#detail .swiper swiper image{
+  width: 700rpx;
+  height: 600rpx;
+}
+#detail .left-tag{
+  display: inline-block;
+  width: 140rpx;
+}
+#detail .price{
+  font-size: 1.3rem;
+  color: #e7421e;
+}
+#detail .input-area input{
+  border-bottom: 1rpx solid #666;
+  padding: 10rpx 20rpx;
 }

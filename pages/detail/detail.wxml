@@ -1,18 +1,35 @@
 <view id="detail" class="container">
-  <view>{{itemInfo.title}}</view>
-  <view>价格: {{itemInfo.price}}</view>
-  <view wx:if="{{itemInfo.old_price}}">原价: {{itemInfo.old_price}}</view>
-  <view>所在地: {{itemInfo.school}}</view>
-  <view>发布者: {{itemInfo.nickname}}</view>
-  <view>发布于: {{time}}</view>
-  <view>描述: {{itemInfo.desc}}</view>
-  <view class="message">
-    <textarea value="{{message}}" placeholder="输入留言内容" bindinput="syncValue"></textarea>
-  </view>
-  <view class="send-message">
-    <button type="primary" bindtap="leaveMessage">给Ta留言</button>
-  </view>
+
   <view>
-    <image wx:for="{{imgList}}" wx:key="{{item}}" src="{{item}}" lazy-load mode="widthFix"></image>
+    <z-breadcrumb separator=">" bread-list="{{breadList}}" current="商品详情页"></z-breadcrumb>
   </view>
+
+  <view class="swiper">
+    <swiper indicator-dots="{{true}}">
+      <swiper-item wx:for="{{imgList}}" wx:key="{{index}}">
+        <image src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view>{{itemInfo.title}}</view>
+  <view class="price">￥{{itemInfo.price}}</view>
+
+  <view class="send-message">
+    <button type="primary" bindtap="leaveMessage">{{buttonText}}</button>
+  </view>
+
+  <view class="input-area" hidden="{{ifHidden}}">
+    <input value="{{message}}" bindinput="syncMessage" placeholder="请输入消息内容..." confirm-type="send" confirm-hold="{{true}}" bindconfirm="sendMessage" focus="{{ifFocus}}"></input>
+  </view>
+
+  <i-divider content="商品详情" size="14"></i-divider>
+  <view wx:if="{{itemInfo.old_price}}">
+    <text class="left-tag">原价:</text>{{itemInfo.old_price}}
+  </view>
+  <view><text class="left-tag">所在地:</text>{{itemInfo.school}}</view>
+  <view><text class="left-tag">发布者:</text>{{itemInfo.nickname}}</view>
+  <view><text class="left-tag">发布于:</text>{{time}}</view>
+  <view><text class="left-tag">描述:</text>{{itemInfo.desc}}</view>
+
 </view>

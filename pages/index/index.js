@@ -15,8 +15,9 @@ Page({
     itemName: "",
     cateList:['最新','电瓶车','自行车','书籍','艺术品','其他'],
     currentTab: '最新',
-    itemList: '',
+    itemList: '[]',
     itemNum: 0,
+    size: 4,
     userInfo: '',
     visible: false,
     actionSheet: [{name: '退出登录'}],
@@ -39,6 +40,11 @@ Page({
     if(userInfo){
       this.setData({
         userInfo,
+      })
+    }else{
+      this.setData({
+        userInfo:'',
+        //visible:false,
       })
     }
   },
@@ -113,19 +119,12 @@ Page({
       })
       return false;
     }
-    app.wxGet('search',{
-      school: this.data.schoolName,
-      keyword: this.data.itemName,
-      page: 1,
-      size: 4
-    },(data)=>{
-      if(data.err){
-        console.warn(data.err);
-        return false;
-      }
-    },(err)=>{
-      console.error(err);
-    })
+    if(this.data.itemName === ''){
+      return false;
+    }
+    wx.navigateTo({
+      url: `/pages/search/search?size=${this.data.size}&keyword=${this.data.itemName}`,
+    });
   },
   //切换分类
   changeTab({detail}){
@@ -145,7 +144,7 @@ Page({
     let tempObj={
       school: this.data.schoolName,
       page: this.data.currentPage,
-      size: 4,
+      size: this.data.size,
     }
     if (this.data.currentTab !== '最新'){
       tempObj.cate = this.data.currentTab;

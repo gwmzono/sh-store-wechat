@@ -8,4 +8,16 @@
   flex-direction: column;
   box-sizing: border-box;
   margin: 0 25rpx;
-} 
+}
+button[type=warning]{
+  color: #fff;
+  background-color: #ff9900;
+}
+button[type=error]{
+  color: #fff;
+  background-color: #ed4014;
+}
+button[type=disabled]{
+  color: #fff;
+  background-color: #c5c8ce;
+}

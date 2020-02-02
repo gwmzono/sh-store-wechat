@@ -1,0 +1,8 @@
+<!--components/breadcrumb/breadcrumb.wxml-->
+<view class="breadcrumb">
+  <view wx:for="{{breadList}}" wx:key="{{index}}" class="breadcrumb-item">
+    <view data-to="{{item.to}}" class="breadcrumb-link" bindtap="clickBreadcrumb">{{item.name}}</view>
+    <view class="breadcrumb-separator">{{separator}}</view>
+  </view>
+  <view class="breadcrumb-current">{{current}}</view>
+</view>

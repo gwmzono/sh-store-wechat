@@ -1,0 +1,21 @@
+/* components/breadcrumb/breadcrumb.wxss */
+.breadcrumb{
+  display: flex;
+}
+.breadcrumb-item{
+  display: flex;
+}
+.breadcrumb-link{
+  line-height: 80rpx;
+  color: #2d8cf0;
+}
+.breadcrumb-separator{
+  line-height: 80rpx;
+  color: #80848f;
+  width: 40rpx;
+  text-align: center;
+}
+.breadcrumb-current{
+  line-height: 80rpx;
+  color:#333;
+}

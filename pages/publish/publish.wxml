@@ -1,2 +1,39 @@
 <!--pages/publish/publish.wxml-->
-<text>pages/publish/publish.wxml</text>
+<view class="container" id="publish">
+  <i-toast id="toast" />
+  <i-modal title="您确定删除吗?" visible="{{ modalVisible }}" bind:ok="handleDeleteImg" ok-text="删除" bind:cancel="cancelDelete">
+    <view>删除后不可恢复!</view>
+  </i-modal>
+  <view class="img-wrap">
+    <view wx:for="{{imgList}}" wx:key="{{index}}" class="img">
+      <image src="{{item.path}}" lazy-load mode="aspectFill"></image>
+      <button style="color:red;" data-index="{{index}}" bindtap="deleteImg">删除</button>
+    </view>
+  </view>
+  <view class="select-img">
+    <button bindtap="selectImage" wx:if="{{imgList.length<5}}">选择图片</button>
+  </view>
+  <view class="title">
+    <text>标题:</text>
+    <input placeholder="4-30字标题" value="{{upload.title}}" bindinput="titleSync"></input>
+  </view>
+  <view class="desc">
+    <text>描述:</text>
+    <textarea placeholder="最少10字" value="{{upload.desc}}" bindinput="descSync" maxlength="{{1000}}"></textarea>
+  </view>
+  <view class="cate">
+    <text>分类:</text>
+    <picker range="{{cate}}" value="{{upload.cate}}" bindchange="cateSync">{{cate[upload.cate]}} ></picker>
+  </view>
+  <view class="price">
+    <text>价格:</text>
+    <input placeholder="0.00-9999.99元" value="{{upload.price}}" bindinput="priceSync"></input>
+  </view>
+  <view class="old-price">
+    <text>原价:</text>
+    <input placeholder="0.00-9999.99元" value="{{upload.old_price}}" bindinput="oldPriceSync"></input>
+  </view>
+  <view class="upload">
+    <button bindtap="publish">上传</button>
+  </view>
+</view>

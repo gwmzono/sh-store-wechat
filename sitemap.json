@@ -1,7 +1,9 @@
 {
   "desc": "piggy",
-  "rules": [{
-  "action": "allow",
-  "page": "*"
-  }]
+  "rules": [
+    {"action": "allow", "page": "pages/index/index"},
+    {"action": "allow", "page": "pages/publish/publish"},
+    {"action": "allow", "page": "pages/mine/mine"},
+    {"action": "disallow", "page": "*"}
+  ]
 }

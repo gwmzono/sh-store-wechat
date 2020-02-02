@@ -3,11 +3,11 @@
   <i-toast id="toast" />
   <view class="z-input">
     <view class="title">用户名: </view>
-    <input value="{{userName}}" placeholder="输入用户名" bindinput="changeUserName" bindblur="checkUserName"></input>
+    <input value="{{userName}}" placeholder="输入用户名" bindinput="changeUserName"></input>
   </view>
   <view class="z-input">
     <view class="title">密码: </view>
-    <input value="{{password}}" password placeholder="输入密码" bindinput="changePassword" bindblur="checkPassword"></input>
+    <input value="{{password}}" password placeholder="输入密码" bindinput="changePassword"></input>
   </view>
   <view class="login-btn">
     <button type="primary" bindtap="pressLoginButton">登录</button>
