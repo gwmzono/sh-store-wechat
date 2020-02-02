@@ -6,7 +6,7 @@
     </block>
     <block wx:else>
       <button bindtap="pressMessage">我的消息</button>
-      <button bindtap="pressItemList">物品列表</button>
+      <button bindtap="pressItemList">我的发布</button>
       <button bindtap="pressChangePassword">修改密码</button>
       <button bindtap="pressLogoutButton" type="warning">退出登录</button>
       <button bindtap="pressUnregister" class="unrigister" type="error">注销账户</button>

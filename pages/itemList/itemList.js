@@ -1,66 +1,47 @@
 // pages/itemList/itemList.js
+const app = getApp();
+const { $Toast } = require('../../ivu/base/index');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:{},
+    itemList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const userInfo = wx.getStorageSync('userInfo');
+    const user_id = userInfo.id;
+    this.setData({userInfo});
+    app.wxGet('allItem',{user_id},(data)=>{
+      for(let i in data){
+        if(data[i].title.length > 20){
+          data[i].title = data[i].title.slice(0,20) + '...';
+        }
+      }
+      this.setData({
+        itemList:data,
+      })
+    },()=>{
+      $Toast({
+        type: 'error',
+        content: '物品列表获取失败,请检查网络'
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //点击物品
+  clickItem(payload){
+    const index = payload.target.dataset.index;
+    const item_id = this.data.itemList[index].id;
+    wx.navigateTo({
+      url: `/pages/detail/detail?item=${item_id}`,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

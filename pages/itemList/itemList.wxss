@@ -1,1 +1,5 @@
 /* pages/itemList/itemList.wxss */
+
+#item-list .item-list-info{
+  color: #ff9900;
+}

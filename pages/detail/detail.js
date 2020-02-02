@@ -91,7 +91,7 @@ Page({
       },()=>{
         $Toast({
           type:'error',
-          content:'发送失败!'
+          content:'发送失败,请检查网络'
         })
       });
     }

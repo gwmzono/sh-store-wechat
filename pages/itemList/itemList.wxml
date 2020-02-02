@@ -1,2 +1,12 @@
 <!--pages/itemList/itemList.wxml-->
-<text>pages/itemList/itemList.wxml</text>
+<view class="container" id="item-list">
+  <view class="item-list-info">
+    注:更多功能请使用网页版,微信版只提供查看功能
+  </view>
+
+  <i-divider></i-divider>
+
+  <i-cell-group>
+    <i-cell wx:for="{{itemList}}" wx:key="{{index}}" title="{{item.title}}" is-link bind:click="clickItem" data-index="{{index}}"></i-cell>
+  </i-cell-group>
+</view>
