@@ -11,6 +11,7 @@ Page({
   data: {
     index:0,
     message:'',
+    itemTitle:'',
     userInfo:{},
     dialogueList:[],
     timer:0,
@@ -48,13 +49,14 @@ Page({
       this.setData({
         dialogueList: list[this.data.index],
       })
+      this.setData({itemTitle:this.data.dialogueList[0].item_title});
       wx.pageScrollTo({
         selector: '#page-bottom',
       })
     }, () => {
       $Toast({
-        type: 'success',
-        content: '发送失败'
+        type: 'error',
+        content: '发送失败,请检查网络'
       })
     });
   },

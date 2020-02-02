@@ -2,6 +2,7 @@
 <view id="dialogue" class="container">
   <view class="dialoguearea">
     <text wx:for="{{dialogueList}}" wx:key="{{index}}" class="{{userInfo.id === item.from?'mine':'other'}}">{{item.message}}</text>
+    <i-divider>{{itemTitle}}</i-divider>
     <view id="page-bottom"></view>
   </view>
 

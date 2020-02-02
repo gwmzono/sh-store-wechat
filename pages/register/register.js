@@ -16,13 +16,6 @@ Page({
     nickname:'',
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
   //绑定学校
   changeSchool({detail}){
     this.setData({school:detail.value.trim()})
@@ -136,7 +129,7 @@ Page({
     },()=>{
       $Toast({
         type:'error',
-        content: '注册失败',
+        content: '注册失败,请检查网络',
       })
     })
   },
