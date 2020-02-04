@@ -13,8 +13,11 @@
     </block>
   </view>
 
+  <i-divider wx:if="{{userInfo.id}}">{{userInfo.nickname}}</i-divider>
+
   <i-modal title="注销!!!" visible="{{unregisterVisible}}" bind:ok="confirmUnregister" bind:cancel="cancelUnregister">
     <view>注销操作将会永久删除</view>
     <view>当前账户以及所有相关数据</view>
-  </i-modal>
+  </i-modal>  
+  <i-toast id="toast" />
 </view>

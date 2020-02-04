@@ -112,14 +112,33 @@ Page({
       if(!res.err){
         $Toast({
           type:"success",
-          content:"正在跳转到登录页面"
+          content:"正在自动登录..."
         })
         setTimeout(()=>{
           $Toast.hide();
-          wx.redirectTo({
-            url: "/pages/login/login",
-          })
-        },1500)
+          const loginTask = app.wxPost('login',{
+            phone: this.data.phone,
+            password: this.data.password,
+          },(data)=>{
+            if (data.err) {
+              $Toast({
+                type: 'error',
+                content: data.err
+              })
+            } else {
+              wx.switchTab({
+                url: '/pages/index/index',
+              })
+            }
+          },()=>{});
+          loginTask.onHeadersReceived(function (res) {
+            const token = res.header['x-token'];
+            if (!token) { return false; }
+            let userInfo = JSON.parse(atob(token.split('.')[1]).replace(/\}.*$/, "}"));
+            wx.setStorageSync('userInfo', userInfo);
+            wx.setStorageSync('token', token);
+          });
+        },1500);
       }else{
         $Toast({
           type:'error',

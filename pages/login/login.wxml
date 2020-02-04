@@ -12,4 +12,9 @@
   <view class="login-btn">
     <button type="primary" bindtap="pressLoginButton">登录</button>
   </view>
+
+  <view class="navigate-to-reg">
+    <navigator url="/pages/register/register">我要注册</navigator>
+  </view>
+  
 </view>

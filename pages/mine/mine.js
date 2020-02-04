@@ -1,5 +1,6 @@
 // pages/mine/mine.js
 const app = getApp();
+const { $Toast } = require('../../ivu/base/index');
 Page({
 
   /**
@@ -76,6 +77,7 @@ Page({
   pressLogoutButton() {
     this.setData({
       loginStatus: false,
+      userInfo:{},
     });
     wx.removeStorageSync('userInfo')
     wx.removeStorageSync('token')
@@ -89,9 +91,29 @@ Page({
   },
   //确认注销
   confirmUnregister() {
-    this.setData({
-      unregisterVisible: false
+    $Toast({
+      type: 'loading',
+      content: '注销操作中...'
     })
+
+    const id = this.data.userInfo.id;
+    this.setData({
+      unregisterVisible: false,
+      userInfo:{},
+      loginStatus: false,
+    })
+    
+    app.wxPost('unRegister',{id},()=>{
+      setTimeout(()=>{
+        $Toast.hide();
+        $Toast({
+          type:'success',
+          content:'注销成功!'
+        });
+      },1000);
+      wx.removeStorageSync('userInfo');
+      wx.removeStorageSync('token');
+    },(err)=>{console.error(err)})
   },
   //取消注销
   cancelUnregister(){

@@ -30,7 +30,7 @@ Page({
   //选择图片
   selectImage(){
     if (!app.checkLogin()) {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/login/login',
       })
       return false;

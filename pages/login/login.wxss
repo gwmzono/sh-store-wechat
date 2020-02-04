@@ -12,3 +12,12 @@
   border-bottom: 1px solid #ccc;
   flex-grow: 1;
 }
+#login .navigate-to-reg{
+  margin-top: 20rpx;
+}
+#login .navigate-to-reg navigator{
+  width: 160rpx;
+  float: right;
+  color: #2d8cf0;
+  text-align: center;
+}
